@@ -11,6 +11,9 @@ export const enhancerProfessionalSummary = async (req, res) => {
         if (!summary) {
             return res.status(400).json({ message: "Summary is required" });
         }
+        if (!ai) {
+            return res.status(400).json({ message: "AI service not configured - OPENAI_API_KEY is missing" });
+        }
 
       const response = await ai.chat.completions.create({
             model: process.env.OPENAI_MODEL,
@@ -32,6 +35,9 @@ export const enhanceJobDescription = async (req, res) => {
         const { jobDescription } = req.body;
         if (!jobDescription) {
             return res.status(400).json({ message: "Job description is required" });
+        }
+        if (!ai) {
+            return res.status(400).json({ message: "AI service not configured - OPENAI_API_KEY is missing" });
         }
         const response = await ai.chat.completions.create({
             model: process.env.OPENAI_MODEL,
