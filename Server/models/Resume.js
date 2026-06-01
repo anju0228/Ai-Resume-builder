@@ -1,5 +1,3 @@
-import e from "express";
-import { image, title } from "framer-motion/client";
 import mongoose from "mongoose";
 
 const resumeSchema = new mongoose.Schema({
