@@ -79,6 +79,9 @@ export const updateResume = async (req, res) => {
             resumeDataCopy = structuredClone(resumeData)
         }
         if (image) {
+            if (!imageKit) {
+                return res.status(400).json({ message: "Image upload service not configured - IMAGEKIT_PRIVATE_KEY is missing" });
+            }
             const imageBuffer = fs.createReadStream(image.path);
             const response = await imageKit.upload({
                 file: imageBuffer,
