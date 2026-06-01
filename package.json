@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "start": "cd Server && npm start"
+  },
   "dependencies": {
     "framer-motion": "^12.38.0",
     "react": "^19.2.4",
