@@ -1,0 +1,11 @@
+# Ignore dependency directories
+node_modules/
+Server/node_modules/
+client/node_modules copy/
+**/node_modules/
+
+# Environment and IDE files
+.env
+.env.local
+.vscode/
+.DS_Store
